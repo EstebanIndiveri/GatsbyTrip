@@ -1,22 +1,24 @@
-import React from "react"
-import { Link } from "gatsby"
-
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import React, { Fragment } from "react"
+import Layout from '../components/Layout'
+import SimpleHero from '../components/SimpleHero';
+import Banner from '../components/Banner';
+import {Link} from 'gatsby';
+import About from '../components/Home/About';
+import Services from '../components/Home/Services';
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
+  <Fragment>
+    <Layout>
+      <SimpleHero>
+      <Banner title="Continue Exploring" info="es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500">
+        <Link to="/tours" className="btn-white">Explore tours</Link>
+      </Banner>
+      </SimpleHero>
+    <About/>
+    <Services/>
+
+    </Layout>
+  </Fragment>
 )
 
-export default IndexPage
+export default IndexPage;
