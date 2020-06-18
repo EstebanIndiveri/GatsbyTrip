@@ -1,19 +1,20 @@
 import React, { Fragment } from "react"
 import Layout from '../components/Layout'
-import SimpleHero from '../components/SimpleHero';
 import Banner from '../components/Banner';
-import {Link} from 'gatsby';
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 import About from '../components/Home/About';
 import Services from '../components/Home/Services';
+import StyledHero from '../components/StyledHero';
+import {graphql} from 'gatsby';
+const IndexPage = ({data}) => (
 
-const IndexPage = () => (
   <Fragment>
     <Layout>
-      <SimpleHero>
+      <StyledHero home="true" img={data.defaultBcg.childImageSharp.fluid}>
       <Banner title="Continue Exploring" info="es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500">
-        <Link to="/tours" className="btn-white">Explore tours</Link>
+        <AniLink fade to="/tours" className="btn-white">Explore tours</AniLink>
       </Banner>
-      </SimpleHero>
+      </StyledHero>
     <About/>
     <Services/>
 
@@ -22,3 +23,15 @@ const IndexPage = () => (
 )
 
 export default IndexPage;
+
+export const query=graphql`
+query{
+  defaultBcg:file(relativePath:{eq:"defaultBcg.jpeg"}){
+    childImageSharp{
+      fluid(quality:90 maxWidth:4160){
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+}
+`
