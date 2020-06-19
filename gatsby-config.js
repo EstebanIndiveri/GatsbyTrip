@@ -8,7 +8,7 @@ module.exports = {
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
     twitterUserName:'@esteban_tefa',
-    image:'/defaultBcg.jpeg',
+    image:'public/defaultBcg.jpeg',
     siteUrl:'https://gatsby-trip.netlify.app'
   },
   plugins: [
